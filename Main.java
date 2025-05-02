@@ -45,7 +45,7 @@ public class Main {
 		    }
 		    return achou; 
 		}
-
+		
 
 		public static void main(String[] args) {
 			
@@ -199,35 +199,33 @@ public class Main {
 								sc.nextLine();
 							
 									if (main.ExisteID(iD)) {
-										break;
-									}else {
+										for (Aluno aluno : alunos) {
+											
+											if (iD == aluno.getId()) {						
+											while (true){
+													System.out.println();
+													System.out.println("1 - Nome.");
+													System.out.println("2 - Matrícula.");
+													System.out.println("3 - Curso.");
+													System.out.println("4 - Sair.");
+													System.out.print("Editar: ");
+													int resp = sc.nextInt();
+													System.out.println();
+													
+													if (resp < 4) {
+														aluno.Editar(resp);
+													}
+													else if(resp == 4) {
+														break;
+													} else if (resp > 4 || resp < 1) {
+														System.err.println("Opção inválida.");
+													}
+												}
+											}
+										} } else {
 										System.err.println("ID não existe.");
 										System.out.println();
-									}
-						}
-							
-						
-						for (Aluno aluno : alunos) {
-							while (true){
-								System.out.println();
-								System.out.println("1 - Nome.");
-								System.out.println("2 - Matrícula.");
-								System.out.println("3 - Curso.");
-								System.out.println("4 - Sair.");
-								System.out.print("Editar: ");
-								int resp = sc.nextInt();
-								System.out.println();
-								
-									if (resp < 4) {
-										aluno.Editar(resp);
-									}
-									else if(resp == 4) {
-										break;
-									} else if (resp > 4 || resp < 1) {
-										System.err.println("Opção inválida.");
-									}
-								
-							}	
+										}	
 							break;
 						}
 						break;
@@ -300,4 +298,5 @@ public class Main {
 	
 		}
 }
+
 
